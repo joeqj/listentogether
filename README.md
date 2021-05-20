@@ -8,12 +8,6 @@ Encouraging collaborative listening on Spotify
 
 <br>
 
-**Prerequisites:**
-
-A mongodb server must be specified in the .env file.
-
-<br>
-
 Run nodejs server in development environment:
 
 ```
@@ -29,4 +23,20 @@ Run application front end (Nuxt)
 cd client
 npm install
 npm run dev
+```
+
+<br>
+
+**Prerequisites:**
+
+* A mongodb connection
+* .env file
+```
+BASE_URL=<http://nodeserver/port>
+FRONTEND_URL=<http://nuxtserver/port>
+
+DB_CONNECTION=<mongoDBurl>
+
+SPOTIFY_CLIENT=<spotifyClient>
+SPOTIFY_SECRET=<spotifySecret>
 ```
