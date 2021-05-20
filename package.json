@@ -1,21 +1,26 @@
 {
   "name": "listentogether",
   "version": "1.0.0",
-  "description": "",
+  "description": "Encouraging collaborative listening on Spotify",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeqj/listentogether.git"
   },
   "keywords": [],
   "author": "Joe QJ",
   "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "morgan": "^1.10.0"
+  "bugs": {
+    "url": "https://github.com/joeqj/listentogether/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
+  "homepage": "https://github.com/joeqj/listentogether#readme",
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.10",
+    "nodemon": "^2.0.7"
   }
 }

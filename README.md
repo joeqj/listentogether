@@ -1,3 +1,3 @@
 ## Listen together
 
-Nodejs project
+Encouraging collaborative listening on Spotify
