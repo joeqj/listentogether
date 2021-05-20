@@ -23,7 +23,7 @@ npm run dev
 ```
 
 
-Run application front end
+Run application front end (Nuxt)
 
 ```
 cd client
