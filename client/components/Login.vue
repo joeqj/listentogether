@@ -1,9 +1,8 @@
 <template>
   <div class="c-login">
     <p class="c-login__title">Listen Together</p>
-    <p class="c-login__notice">Note: Premium Spotify account is required to use this website</p>
     <a href="http://localhost:3333/user/login" class="c-login__button">Connect with Spotify</a>
-    <a href="https://www.spotify.com/uk/premium/" class="text-xs">Get Spotify Premium</a>
+    <p class="c-login__notice">Note: Spotify Premium account is required to use this website</p>
   </div>
 </template>
 
@@ -23,14 +22,9 @@ export default {};
     @apply mb-8;
   }
 
-  &__notice {
-    @apply text-gray-300;
-    @apply text-sm;
-  }
-
   &__button {
     @apply bg-green-500;
-    @apply block p-4 mt-8 mb-2;
+    @apply block p-4 mt-8 mb-5;
     @apply rounded-lg;
     @apply transition-colors duration-200;
 
@@ -38,9 +32,11 @@ export default {};
       @apply bg-green-600;
     }
   }
-  
-  a {
-    @apply text-white;
+
+  &__notice {
+    @apply text-gray-300;
+    @apply text-xs;
+    @apply w-10/12 mx-auto;
   }
 }
 </style>
