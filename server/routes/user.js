@@ -66,29 +66,31 @@ router.get('/callback', function (req, res) {
                 grant_type: 'authorization_code'
             },
             headers: {
-                'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+                'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64'))
             },
             json: true
         };
 
         request.post(authOptions, function (error, response, body) {
             if (!error && response.statusCode === 200) {
+                // If request was successful
 
                 var access_token = body.access_token,
                     refresh_token = body.refresh_token;
 
-                var options = {
-                    url: 'https://api.spotify.com/v1/me',
-                    headers: {
-                        'Authorization': 'Bearer ' + access_token
-                    },
-                    json: true
-                };
+                // Todo: Use this in Nuxt :)
+                // var options = {
+                //     url: 'https://api.spotify.com/v1/me',
+                //     headers: {
+                //         'Authorization': 'Bearer ' + access_token
+                //     },
+                //     json: true
+                // };
 
-                // use the access token to access the Spotify Web API
-                request.get(options, function (error, response, body) {
-                    console.log(body);
-                });
+                // // use the access token to access the Spotify Web API
+                // request.get(options, function (error, response, body) {
+                //     console.log(body);
+                // });
 
                 // we can also pass the token to the browser to make requests from there
                 res.redirect(process.env.FRONTEND_URL + '/#' +
@@ -97,9 +99,10 @@ router.get('/callback', function (req, res) {
                         refresh_token: refresh_token
                     }));
             } else {
+                // If request returns error redirect with error message
                 res.redirect(process.env.FRONTEND_URL + '/#' +
                     querystring.stringify({
-                        error: 'invalid_token'
+                        error: 'error' //! this was originally invalid_token
                     }));
             }
         });
