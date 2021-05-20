@@ -14,8 +14,8 @@ app.get('/', (req, res) => {
     })
 });
 
-const roomRoute = require('./routes/room');
-app.use('/room', roomRoute)
+const roomRoute = require('./routes/rooms');
+app.use('/rooms', roomRoute)
 
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, { 
