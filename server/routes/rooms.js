@@ -52,10 +52,11 @@ router.post('/create', async (req, res) => {
     
 });
 
-// Update Room
+// Update Room Details
 router.patch('/:id', async (req, res) => {
     try {
         //! Todo: change _id to use spotify user id
+        //! Todo: update all fields
         const roomUpdate = Room.updateOne({
             _id: req.params.id
         },
