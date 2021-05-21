@@ -93,14 +93,14 @@ router.get('/callback', function (req, res) {
                 // });
 
                 // we can also pass the token to the browser to make requests from there
-                res.redirect(process.env.FRONTEND_URL + '/#' +
+                res.redirect(process.env.FRONTEND_URL + '/login?' +
                     querystring.stringify({
                         access_token: access_token,
                         refresh_token: refresh_token
                     }));
             } else {
                 // If request returns error redirect with error message
-                res.redirect(process.env.FRONTEND_URL + '/#' +
+                res.redirect(process.env.FRONTEND_URL + '/login?' +
                     querystring.stringify({
                         error: 'error' //! this was originally invalid_token
                     }));
