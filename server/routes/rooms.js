@@ -28,16 +28,11 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create Room
-router.get('/create', (req, res) => {
-    res.json({
-        message: "Create!"
-    })
-});
-
 router.post('/create', async (req, res) => {
     const room = new Room({
         title: req.body.title,
         description: req.body.description,
+        spotifyUserId: req.body.spotifyUserId,
         joinLink: req.body.joinLink
     });
 

@@ -8,6 +8,9 @@ const RoomSchema = mongoose.Schema({
     description: {
         type: String
     },
+    spotifyUserId: {
+        type: String
+    },
     date: {
         type: Date,
         default: Date.now
