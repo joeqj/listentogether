@@ -3,3 +3,10 @@ body {
     @apply font-body;
     @apply bg-gray-900;
 }
+
+.c-btn {
+    @apply px-6 py-2;
+    @apply rounded-lg;
+    @apply text-white;
+    @apply transition-colors duration-200;
+}
