@@ -1,10 +1,7 @@
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <div class="flex justify-center items-center h-screen text-white">
     <template v-if="!hasData">
       <Login />
-    </template>
-    <template v-else>
-      <p class="text-white">Logging you in</p>
     </template>
   </div>
 </template>
@@ -13,20 +10,45 @@
 export default {
   data() {
     return {
-      hasData: false
+      hasData: false,
+      access: undefined,
+      refresh: undefined,
+      user: undefined
     }
   },
   created() {
-    let access = this.$route.query.access_token;
-    let refresh = this.$route.query.refresh_token;
+    this.access = this.$route.query.access_token;
+    this.refresh = this.$route.query.refresh_token;
 
-    if(access && refresh) {
+    if(this.access && this.refresh) {
       this.hasData = true;
+      this.$store.commit('user/authenticate', true);
+    }
+  },
+  mounted() {
+    if (this.hasData === true) {
+      this.getCurrentUser();
     }
   },
   methods: {
-    async fetchUser() {
-      
+    async getCurrentUser() {
+      const user = await this.$axios.$get('https://api.spotify.com/v1/me', {
+        headers: {
+          'Authorization': 'Bearer ' + this.access
+        }
+      })
+
+      let currentUser = {
+        access: this.access,
+        refresh: this.refresh,
+        ...user
+      }
+
+      this.$store.commit('user/addUser', currentUser);
+
+      this.$nuxt.$options.router.push({
+        path: '/'
+      })
     }
   }
 };
