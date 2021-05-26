@@ -10,7 +10,7 @@
 export default {};
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .c-login {
   @apply w-1/3 p-8;
   @apply bg-gray-600 text-gray-100;

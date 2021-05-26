@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center h-screen">
-    <p class="text-white">You are authenticated</p>
+    <p class="text-white">Listen Together goes here!</p>
   </div>
 </template>
 

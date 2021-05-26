@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header v-if="this.$store.state.user.user" />
     <Nuxt />
   </div>
 </template>
