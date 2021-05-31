@@ -1,7 +1,7 @@
 <template>
   <div class="c-login">
     <p class="c-login__title">Listen Together</p>
-    <a href="http://localhost:3333/user/login" class="c-login__button">Connect with Spotify</a>
+    <a href="http://localhost:3333/user/login" class="c-btn c-login__button">Connect with Spotify</a>
     <p class="c-login__notice">Note: Spotify Premium account is required to use this website</p>
   </div>
 </template>
@@ -25,8 +25,6 @@ export default {};
   &__button {
     @apply bg-green-500;
     @apply block p-4 mt-8 mb-5;
-    @apply rounded-lg;
-    @apply transition-colors duration-200;
 
     &:hover {
       @apply bg-green-600;

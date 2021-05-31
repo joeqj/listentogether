@@ -4,7 +4,7 @@
     <div class="c-listing" v-for="(room, index) in rooms" :key="index">
       <div class="flex items-start justify-between">
         <p v-text="room.title" class="c-listing__title"></p>
-        <router-link :to="'room/' + room.spotifyUserId" class="c-btn bg-green-900 hover:bg-green-700">Join</router-link>
+        <router-link :to="'room/' + room.spotifyUserId" class="c-btn bg-gray-700 hover:bg-gray-600">Join</router-link>
       </div>
       <HomeListingUser
         v-bind:id="room.spotifyUserId"
@@ -29,7 +29,6 @@ export default {
   methods: {
     async getAllRooms() {
       const rooms = await this.$axios.$get('http://localhost:3333/rooms');
-      console.log(rooms);
       this.rooms = rooms;
     }
   }
