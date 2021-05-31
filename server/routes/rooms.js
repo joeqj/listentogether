@@ -9,8 +9,9 @@ router.get('/', async (req, res) => {
         const rooms = await Room.find();
         res.json(rooms);
     } catch (error) {
+        console.log(error);
         res.json({
-            message: error
+            message: 'error'
         });
     }
 });
@@ -18,7 +19,9 @@ router.get('/', async (req, res) => {
 // Get specific Room by id
 router.get('/:id', async (req, res) => {
     try {
-        const room = await Room.findById(req.params.id);
+        const room = await Room.findOne({
+            spotifyUserId: req.params.id
+        });
         res.json(room);
     } catch (error) {
         res.json({
@@ -53,7 +56,7 @@ router.patch('/:id', async (req, res) => {
         //! Todo: change _id to use spotify user id
         //! Todo: update all fields
         const roomUpdate = Room.updateOne({
-            _id: req.params.id
+            spotifyUserId: req.params.id
         },
         {
             $set: {
@@ -73,7 +76,7 @@ router.delete('/:id', async (req, res) => {
     try {
         //! Todo: change _id to use spotify user id
         const roomRemove = await Room.remove({
-            _id: req.params.id
+            spotifyUserId: req.params.id
         });
         res.json(roomRemove);
     } catch (error) {
